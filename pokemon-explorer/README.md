@@ -1,16 +1,21 @@
-# React + Vite
+# Pokémon Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React Single Page Application (SPA) that allows users to explore Pokémon. Built as a Minimum Viable Product (MVP) to demonstrate React skills, component architecture, routing, state management, API integration, responsive design, and basic testing.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## GitHub Repository
 
-## React Compiler
+All source code is available here:  
+[https://github.com/bodun329/pokemon-explorer](https://github.com/bodun329/pokemon-explorer)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Browse a list of Pokémon fetched from [PokéAPI](https://pokeapi.co/)  
+- View detailed information for each Pokémon (height, weight, image)  
+- Add or remove Pokémon from favorites (global state with Context API)  
+- Multi-view SPA navigation with React Router  
+- Mobile-first responsive design  
+- Basic unit tests for key components (using Vitest + React Testing Library)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure

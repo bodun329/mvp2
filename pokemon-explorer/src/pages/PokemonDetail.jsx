@@ -5,14 +5,18 @@ import Loading from "../components/Loading";
 import { useFavorites } from "../context/FavoritesContext";
 
 const PokemonDetail = () => {
-  const { id } = useParams();
+  const { name } = useParams(); // <-- make sure this matches your route
   const [pokemon, setPokemon] = useState(null);
+  const [error, setError] = useState(null);
   const { favorites, toggleFavorite } = useFavorites();
 
   useEffect(() => {
-    fetchPokemonDetail(id).then(setPokemon);
-  }, [id]);
+    fetchPokemonDetail(name)
+      .then(setPokemon)
+      .catch(() => setError("Failed to load Pokémon"));
+  }, [name]);
 
+  if (error) return <p>{error}</p>;
   if (!pokemon) return <Loading />;
 
   const isFavorite = favorites.includes(pokemon.name);
