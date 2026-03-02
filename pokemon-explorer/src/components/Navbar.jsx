@@ -1,11 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => (
-  <nav style={{ padding: "10px", background: "#ef5350", color: "white" }}>
-    <Link to="/" style={{ marginRight: "15px", color: "white" }}>Home</Link>
-    <Link to="/pokemon" style={{ color: "white" }}>Pokémon List</Link>
-  </nav>
-);
+function Navbar() {
+  return (
+    <nav style={{ padding: "1rem", display: "flex", gap: "1rem" }}>
+      <Link to="/">Home</Link>
+      <Link to="/pokemon">Pokemon</Link>
+      <Link to="/favorites">Favorites</Link>
+    </nav>
+  );
+}
 
 export default Navbar;

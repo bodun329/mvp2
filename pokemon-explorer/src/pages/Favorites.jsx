@@ -1,23 +1,24 @@
-import React, { createContext, useState, useContext } from "react";
+import { useContext } from "react";
+import { FavoritesContext } from "../context/FavoritesContext";
 
-const FavoritesContext = createContext();
-
-export const FavoritesProvider = ({ children }) => {
-  const [favorites, setFavorites] = useState([]);
-
-  const toggleFavorite = (pokemon) => {
-    setFavorites((prev) =>
-      prev.includes(pokemon)
-        ? prev.filter((p) => p !== pokemon)
-        : [...prev, pokemon]
-    );
-  };
+function Favorites() {
+  const { favorites, removeFavorite } = useContext(FavoritesContext);
 
   return (
-    <FavoritesContext.Provider value={{ favorites, toggleFavorite }}>
-      {children}
-    </FavoritesContext.Provider>
+    <div style={{ padding: "1rem" }}>
+      <h2>Favorites</h2>
+      {favorites.length === 0 ? (
+        <p>No favorites yet.</p>
+      ) : (
+        favorites.map((p) => (
+          <div key={p.name}>
+            <p>{p.name}</p>
+            <button onClick={() => removeFavorite(p.name)}>Remove</button>
+          </div>
+        ))
+      )}
+    </div>
   );
-};
+}
 
-export const useFavorites = () => useContext(FavoritesContext);
+export default Favorites;

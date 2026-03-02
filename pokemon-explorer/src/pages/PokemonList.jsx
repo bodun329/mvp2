@@ -1,28 +1,39 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchPokemonList } from "../services/api";
-import PokemonCard from "../components/PokemonCard";
-import Loading from "../components/Loading";
 
-const PokemonList = () => {
+function PokemonList() {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchPokemonList(50).then((data) => {
-      setPokemon(data);
-      setLoading(false);
-    });
+    fetchPokemonList()
+      .then((data) => {
+        setPokemon(data.results);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, []);
 
-  if (loading) return <Loading />;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
-      {pokemon.map((p) => (
-        <PokemonCard key={p.name} pokemon={p} />
-      ))}
+    <div style={{ padding: "1rem" }}>
+      <h2>Pokemon List</h2>
+      <ul>
+        {pokemon.map((p) => (
+          <li key={p.name}>
+            <Link to={`/pokemon/${p.name}`}>{p.name}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-};
+}
 
 export default PokemonList;

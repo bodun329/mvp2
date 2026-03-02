@@ -1,10 +1,10 @@
-import React from "react";
-
-const Home = () => (
-  <div style={{ padding: "20px" }}>
-    <h1>Welcome to Pokémon Explorer!</h1>
-    <p>Click on Pokémon List to explore Pokémon.</p>
-  </div>
-);
+function Home() {
+  return (
+    <div style={{ padding: "1rem" }}>
+      <h1>Pokemon Explorer</h1>
+      <p>Browse and favorite your favorite Pokemon!</p>
+    </div>
+  );
+}
 
 export default Home;

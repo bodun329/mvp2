@@ -1,22 +1,27 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import PokemonList from "./pages/PokemonList";
 import PokemonDetail from "./pages/PokemonDetail";
+import Favorites from "./pages/Favorites";
+import NotFound from "./pages/NotFound";
+import { FavoritesProvider } from "./context/FavoritesContext";
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/pokemon" element={<PokemonList />} />
-        <Route path="/pokemon/:id" element={<PokemonDetail />} />
-        <Route path="*" element={<h2>404 - Not Found</h2>} />
-      </Routes>
-    </Router>
+    <FavoritesProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pokemon" element={<PokemonList />} />
+          <Route path="/pokemon/:name" element={<PokemonDetail />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </FavoritesProvider>
   );
-};
+}
 
 export default App;
