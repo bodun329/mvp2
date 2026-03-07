@@ -1,18 +1,28 @@
-import React, { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-// This must be exported exactly like this
+// Create context
 export const FavoritesContext = createContext();
 
+// Provider component
 export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
 
-  const addFavorite = (pokemon) => {
-    setFavorites((prev) => [...prev, pokemon]);
+  const toggleFavorite = (pokemonName) => {
+    setFavorites((prev) =>
+      prev.includes(pokemonName)
+        ? prev.filter((name) => name !== pokemonName)
+        : [...prev, pokemonName]
+    );
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite }}>
+    <FavoritesContext.Provider value={{ favorites, toggleFavorite }}>
       {children}
     </FavoritesContext.Provider>
   );
+}
+
+// Hook for easier access
+export function useFavorites() {
+  return useContext(FavoritesContext);
 }
