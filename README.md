@@ -3,7 +3,7 @@
 A React Single Page Application (SPA) that allows users to explore Pokémon. Built as a Minimum Viable Product (MVP) to demonstrate React skills, component architecture, routing, state management, API integration, responsive design, and basic testing.
 
 ## Live Demo
-
+http://localhost:5180/
 ## GitHub Repository
 
 All source code is available here:  

@@ -1,23 +1,33 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import PokemonList from "./pages/PokemonList";
 import PokemonDetail from "./pages/PokemonDetail";
 import Favorites from "./pages/Favorites";
-import NotFound from "./pages/NotFound";
-
+import Login from "./pages/login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Navbar from "./components/Navbar";
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Navbar />
       <Routes>
+
         <Route path="/" element={<Home />} />
-        <Route path="/pokemon" element={<PokemonList />} />
+
         <Route path="/pokemon/:name" element={<PokemonDetail />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="*" element={<NotFound />} />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route
+          path="/favorites"
+          element={
+            <ProtectedRoute>
+              <Favorites />
+            </ProtectedRoute>
+          }
+        />
+
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
