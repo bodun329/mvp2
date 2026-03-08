@@ -1,13 +1,20 @@
+/* Global styles */
 body {
   background-color: #0b0b0b;
   color: #fff;
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+/* Container for pages */
 .home-container {
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Search input */
 .search-input {
   padding: 10px;
   border-radius: 8px;
@@ -19,6 +26,7 @@ body {
   color: #fff;
 }
 
+/* Pokémon Grid */
 .pokemon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -26,6 +34,7 @@ body {
   margin-top: 20px;
 }
 
+/* Pokémon Card */
 .pokemon-card {
   border: 1px solid #444;
   background-color: #1e1e1e;
@@ -46,6 +55,7 @@ body {
   box-shadow: 0 6px 12px rgba(255, 204, 0, 0.4);
 }
 
+/* Favorite button */
 .fav-btn {
   padding: 5px 10px;
   border-radius: 6px;
@@ -60,4 +70,67 @@ body {
 .fav-btn.active {
   background-color: #ffcc00;
   color: #000;
+}
+
+/* Auth forms (Login/Register) */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.auth-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.auth-form button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #444;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #ffcc00;
+}
+
+.nav-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
 }
